@@ -104,9 +104,9 @@ const DnsLookup = () => {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-4 sm:mt-8 sm:pt-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">        
 
         {dnsRecords.map((record, index) => (
-           <> 
-           <RecordCard key={index} record={record} />
-           {console.log((record))}
+           <>
+            <RecordCard key={index} record={record} />
+            {/* {console.log((record))} */}
            </>
           ))}
 
