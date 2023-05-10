@@ -1,6 +1,7 @@
 /** @format */
 
 import React, { useState } from "react";
+import RecordCard from "./RecordCard";
 
 const DnsLookup = () => {
   const [hostname, setHostname] = useState("");
@@ -23,9 +24,11 @@ const DnsLookup = () => {
       });
   };
 
+   
+
   return (
     <div>
-      <div className="isolate bg-white px-6 pt-24 pb-8 sm:pt-32 lg:px-8">
+      <div className="isolate bg-white px-6 pt-10 pb-8 sm:pt-16 lg:px-8">
         <div className="mx-auto max-w-2xl text-center"></div>
         <form onSubmit={handleSubmit} className="mx-auto max-w-xl">
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -96,18 +99,25 @@ const DnsLookup = () => {
       </ul> */}
 
 
-      <div className="bg-white py-4">
+      <div className="bg-white py-2">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">        
-        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          {dnsRecords.map((record, index) => (
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-4 sm:mt-8 sm:pt-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">        
+
+        {dnsRecords.map((record, index) => (
+           <> 
+           <RecordCard key={index} record={record} />
+           {console.log((record))}
+           </>
+          ))}
+
+          {/* {dnsRecords.map((record, index) => (
             <article key={index} className="flex max-w-xl flex-col items-start justify-between">
               <div className="flex items-center gap-x-4 text-xs">  
                 {JSON.stringify(record)}
-                {console.log(Object.values(record))}
-                 {/* {console.log(record1.map(({ key, value }) => ({ [key]: value })))} */}
+                <RecordCard key={index} record={record} />
               </div>
             </article>
-          ))}
+          ))} */}
         </div>
       </div>
     </div>
